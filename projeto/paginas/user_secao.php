@@ -84,7 +84,7 @@
               <button type="search">procurar</button>
             </form>
             <h5>procurar sala</h5>
-            <form action="#" method="get">
+            <form action="../crud/buscarSala.php" method="get">
               <input type="search" name="procura_sala" id="procura_sala">
               <button type="search">procurar</button>
             </form>
