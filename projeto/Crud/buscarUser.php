@@ -9,7 +9,10 @@
 
     $busca = $_GET['procura_perfil'];
 
-    $sql ="SELECT usuario, id FROM usuarios WHERE usuario LIKE '%$busca%'";
+    $sql ="SELECT usuario, id FROM usuario WHERE usuario LIKE '%$busca%'";
+
+
+
 
 
     $result = mysqli_query($link, $sql);
