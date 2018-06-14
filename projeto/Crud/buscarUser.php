@@ -11,7 +11,6 @@
 
     $sql ="SELECT nome, id FROM usuarios WHERE nome LIKE '%$busca%'";
 
-    $resultado_id = mysqli_query($link,$sql);
 
     $result = mysqli_query($link, $sql);
 
