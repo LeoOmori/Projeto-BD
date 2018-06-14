@@ -9,9 +9,13 @@
 
     $busca = $_GET['procura_perfil'];
 
-    $sql = mysql_query("SELECT nome, id FROM usuarios WHERE nome LIKE '%$busca%'");
+    $sql ="SELECT nome, id FROM usuarios WHERE nome LIKE '%$busca%'";
 
-    $count = mysql_num_rows($sql);
+    $resultado_id = mysqli_query($link,$sql);
+
+    $result = mysqli_query($link, $sql);
+
+    $count = mysql_num_rows($result);
     // conta quantos registros encontrados com a nossa especificação
     if ($count == 0) {
         echo "Nenhum resultado!";
@@ -25,7 +29,7 @@
             echo "$count resultados encontrados!";
         }
         // se houver mais de um resultado diz quantos resultados existem
-        while ($dados = mysql_fetch_array($sql)) {
+        while ($dados = mysql_fetch_array($result)) {
             // enquanto houverem resultados...
             echo "$dados[nome] $dados[email]<br>";
             // exibir a coluna nome e a coluna email
