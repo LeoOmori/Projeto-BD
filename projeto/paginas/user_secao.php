@@ -79,7 +79,7 @@
         <div class="col-md-3">
           <div class="search-bar">
             <h5>procurar pessoas</h5>
-            <form action="#" method="get">
+            <form action="../Crud/buscarUser.php" method="get">
               <input type="search" name="procura_perfil" id="procura_perfil">
               <button type="search">procurar</button>
             </form>
