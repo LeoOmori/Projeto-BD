@@ -1,0 +1,15 @@
+.dark{
+    background-color: #efefef;
+    height: 340px;
+    
+}
+.wraper_dark{
+    padding-top: 140px;
+}
+.wraper_dark p{ 
+    padding-top: 30px;
+}
+.secao_light{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
