@@ -15,14 +15,6 @@
 
         $resultado_id = mysqli_query($link,$sql);
 
-
-
-
-
-
-
-
-        
         $result = mysqli_query($link, $sql);
 
         if (mysqli_num_rows($result) > 0) {
