@@ -1,8 +1,12 @@
 <?php
 
   session_start();
+  require_once('../Crud/select_user_by_id.php');
 
-  require_once('../Scripts/sessao_sala.php');
+    $id = $_GET['var'];
+    $usuario;
+    $email;
+    userById($id, $usuario, $email);
 
 ?>
 
@@ -19,8 +23,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="sessao.css">
-    <title>usuario sessão</title>
+
+    <title>Perfil</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -37,58 +41,35 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="../Scripts/sair.php">sair</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="user_secao.php">home</a>
+                            </li>
                     </div>
             
         </div>
 
     </nav>
-    
-    <div class="wrapper px-4">
-      <div class="row mt-4">
-        <div class="col-md-3">
-          <div class="perfil border">
-            <h3>Usuario</h3>
-            <div class="menu border">
-              <a href="perfil.php"><p>Perfil</p></a>
-              <a href="criar_sala.php"><p>Criar sala</p></a>
+    <div class="wrapper pt-4 px-4">
+        <div class="row">
+            <div class="col-md-3">
+
             </div>
-          </div>
+            <div class="col-md-6">
+                <div class="box-avatar">
+                    <img src="img/avatar.jpg" alt="avatar">
+                </div>
+                <h3>perfil</h3>
+                    <div class="pt-4">
+                        <h5> <?php echo " $usuario" ?> </h5>
+                        <h5> <?php echo " $email" ?> </h5>
+                        <h5> </h5>
+                    </div>
+                </div>
+            <div class="col-md-3">
+
+            </div>
         </div>
-        <div class="col-md-6 menu">
-          <h3>Suas salas:</h3>
-
-
-
-          <?php
-
-
-            sessaoSalaUser();
-
-
-
-          ?>
-
-
-          
-          <h3>Salas que você participa:</h3>
-          <div class="pt-4">
-            <a href="sala.php"><p>sala 1</p></a>
-            <a href="sala_sem_forum.php"><p>sala sem fórum</p></a>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="search-bar">
-            <h5>procurar pessoas/sala</h5>
-            <form action="busca.php" method="get">
-              <input type="search" name="procura_perfil" id="procura_perfil">
-              <button type="search">procurar</button>
-            </form>
-          </div>
-        </div>
-      </div>
     </div>
-  
-    
     
     
     

@@ -2,7 +2,12 @@
 
   session_start();
 
-  require_once('../Scripts/sessao_sala.php');
+  require_once('../Crud/buscaruser.php');
+  require_once('../Crud/buscarsala.php');
+  require_once('../bd_connect/classe_db.php');
+
+  $pesquisa = $_GET['procura_perfil'];
+
 
 ?>
 
@@ -37,6 +42,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="../Scripts/sair.php">sair</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="user_secao.php">home</a>
+                            </li>
                     </div>
             
         </div>
@@ -44,52 +52,25 @@
     </nav>
     
     <div class="wrapper px-4">
-      <div class="row mt-4">
-        <div class="col-md-3">
-          <div class="perfil border">
-            <h3>Usuario</h3>
-            <div class="menu border">
-              <a href="perfil.php"><p>Perfil</p></a>
-              <a href="criar_sala.php"><p>Criar sala</p></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 menu">
-          <h3>Suas salas:</h3>
+      <h3>resultado sala</h3>
+      <div class="pt-4">
+        <?php
+
+          buscaSala($pesquisa);
 
 
+        ?>
+      </div>
+      <h3>resultado pessoas</h3>
+      <div class="pt-4">
+        <?php
 
-          <?php
-
-
-            sessaoSalaUser();
-
-
-
-          ?>
+            buscaUser($pesquisa);
 
 
-          
-          <h3>Salas que você participa:</h3>
-          <div class="pt-4">
-            <a href="sala.php"><p>sala 1</p></a>
-            <a href="sala_sem_forum.php"><p>sala sem fórum</p></a>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="search-bar">
-            <h5>procurar pessoas/sala</h5>
-            <form action="busca.php" method="get">
-              <input type="search" name="procura_perfil" id="procura_perfil">
-              <button type="search">procurar</button>
-            </form>
-          </div>
-        </div>
+        ?>
       </div>
     </div>
-  
-    
-    
     
     
     

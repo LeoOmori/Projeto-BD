@@ -1,30 +1,33 @@
 <?php
 
-    require_once('../bd_connect/classe_db.php');
 
 
+    function buscaUser(){
 
-    $objdb = new db();
-    $link = $objdb->conecta_mysql();
+        require_once('../bd_connect/classe_db.php');
 
-    $busca = $_GET['procura_perfil'];
+        $objdb = new db();
+        $link = $objdb->conecta_mysql();
 
-    $sql ="SELECT usuario, id FROM usuario WHERE usuario LIKE '%$busca%'";
-
-
-
+        $busca = $_GET['procura_perfil'];
 
 
-    $result = mysqli_query($link, $sql);
+        $sql ="SELECT usuario, id FROM usuario WHERE usuario LIKE '%$busca%'";
 
-    if (mysqli_num_rows($result) > 0) {
-        // output data of each row
-        while($row = mysqli_fetch_assoc($result)) {
-            $var = $row['usuario'];
-            echo "$var";
+
+        $result = mysqli_query($link, $sql);
+
+
+        if (mysqli_num_rows($result) > 0) {
+            // output data of each row
+            while($row = mysqli_fetch_assoc($result)) {
+                $var = $row['usuario'];
+                $id = $row['id'];
+                echo "<a href=\"perfil_usuarios.php?var=$id\"><p>$var</p></a> </br>";
+
+            }
         }
     }
-
 
 
 ?>
