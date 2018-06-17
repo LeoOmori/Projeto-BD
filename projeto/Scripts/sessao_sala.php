@@ -7,7 +7,7 @@
 
         $id = $_SESSION['id'];
         
-        $sql =" SELECT nome FROM sala WHERE usuario_id = '$id' " ;
+        $sql =" SELECT nome, idsala FROM sala WHERE usuario_id = '$id' " ;
 
         $objdb = new db();
         $link = $objdb->conecta_mysql();
@@ -21,8 +21,9 @@
             // output data of each row
             while($row = mysqli_fetch_assoc($result)) {
                 $div = '"pt-4"';
-                $href = '"sala.php?var=1"';
                 $var = $row["nome"];
+                $idsala = $row['idsala'];
+                $href = "'sala.php?var=$idsala'";
                 echo "<div class=$div>
                 <a href=$href><p>$var</p></a>
             </div>   ";

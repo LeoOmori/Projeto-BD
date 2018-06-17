@@ -24,7 +24,7 @@ function buscaSala(){
         while($row = mysqli_fetch_assoc($result)) {
             $var = $row['nome'];
             $id = $row['idsala'];
-            echo "<a href=\"perfil_usuarios.php?var=$id\"><p>$var</p></a> </br>";
+            echo "<a href=\"sala.php?var=$id\"><p>$var</p></a> </br>";
 
         }
     }

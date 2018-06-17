@@ -1,6 +1,9 @@
 <?php
 
   session_start();
+  $id = $_GET['var'];
+  require_once('../Crud/sala_conteudo.php');
+
 
 
 ?>
@@ -50,7 +53,11 @@
         </div>
         <div class="col-md-6">
         
-          <h3>Sala nome:</h3>
+          <?php
+
+            nome($id);
+
+          ?>
         
         </div>
         <div class="col-md-3">
@@ -58,7 +65,13 @@
       </div>
       <div class="row">
         <div class="col-md-3">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, voluptatum? Maxime corporis autem veniam doloremque!</p>
+          <?php
+
+
+            comentario($id);
+
+
+          ?>
         </div>
         <div class="col-md-6 border">
 
