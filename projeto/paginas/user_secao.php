@@ -72,8 +72,10 @@
           
           <h3>Salas que você participa:</h3>
           <div class="pt-4">
-            <a href="sala.php"><p>sala 1</p></a>
-            <a href="sala_sem_forum.php"><p>sala sem fórum</p></a>
+
+
+
+
           </div>
         </div>
         <div class="col-md-3">

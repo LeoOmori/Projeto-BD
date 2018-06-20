@@ -3,7 +3,13 @@
   session_start();
   $id = $_GET['var'];
   require_once('../Crud/sala_conteudo.php');
+  require_once('../Crud/select_dono_sala.php');
+  require_once('../Crud/salaParticipaCheck.php');
 
+  $dono = donoSala($id);
+  $id_sessao = $_SESSION['id'];
+
+  $participa = participaSalaCheck($id_sessao, $id);
 
 
 ?>
@@ -48,6 +54,19 @@
 
     </nav>
     <div class="wrapper pt-4 px-4">
+      <?php
+        
+        
+        if(($id_sessao !== $dono) && ($participa == 0)){
+            echo '
+            <form action="../Crud/participarSala.php" method="get">
+            <button type="submit" name="var" value=" ',$id,' ">entre na sala</button>
+            </form>';
+        }
+        
+
+
+      ?>
       <div class="row">
         <div class="col-md-3">
         </div>
