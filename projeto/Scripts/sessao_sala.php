@@ -7,7 +7,7 @@
 
         $id = $_SESSION['id'];
         
-        $sql =" SELECT nome, idsala FROM sala WHERE usuario_id = '$id' " ;
+        $sql =" SELECT nome, idsala FROM sala WHERE dono = '$id' " ;
 
         $objdb = new db();
         $link = $objdb->conecta_mysql();

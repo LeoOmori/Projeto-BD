@@ -18,8 +18,8 @@ USE `mydb` ;
 -- Table `mydb`.`usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`usuario` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL,
+  `id` INT NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
   `senha` VARCHAR(32) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -30,18 +30,18 @@ ENGINE = InnoDB;
 -- Table `mydb`.`usuario_amigos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`usuario_amigos` (
-  `remetente` INT NOT NULL,
-  `destinario` INT NOT NULL,
-  `pendente` INT NOT NULL,
-  INDEX `fk_usuario_has_usuario1_usuario2_idx` (`destinario` ASC),
-  INDEX `fk_usuario_has_usuario1_usuario1_idx` (`remetente` ASC),
+  `usuario_id1` INT NOT NULL,
+  `usuario_id2` INT NOT NULL,
+  `aceito` INT NOT NULL,
+  INDEX `fk_usuario_has_usuario1_usuario2_idx` (`usuario_id2` ASC),
+  INDEX `fk_usuario_has_usuario1_usuario1_idx` (`usuario_id1` ASC),
   CONSTRAINT `fk_usuario_has_usuario1_usuario1`
-    FOREIGN KEY (`remetente`)
+    FOREIGN KEY (`usuario_id1`)
     REFERENCES `mydb`.`usuario` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_usuario_has_usuario1_usuario2`
-    FOREIGN KEY (`destinario`)
+    FOREIGN KEY (`usuario_id2`)
     REFERENCES `mydb`.`usuario` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -52,14 +52,14 @@ ENGINE = InnoDB;
 -- Table `mydb`.`sala`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`sala` (
-  `idsala` INT NOT NULL AUTO_INCREMENT,
+  `idsala` INT NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
-  `comentario` VARCHAR(45) NULL,
-  `usuario_id` INT NOT NULL,
-  PRIMARY KEY (`idsala`, `usuario_id`),
-  INDEX `fk_sala_usuario1_idx` (`usuario_id` ASC),
+  `comentario` VARCHAR(45) NOT NULL,
+  `Dono` INT NOT NULL,
+  PRIMARY KEY (`idsala`),
+  INDEX `fk_sala_usuario1_idx` (`Dono` ASC),
   CONSTRAINT `fk_sala_usuario1`
-    FOREIGN KEY (`usuario_id`)
+    FOREIGN KEY (`Dono`)
     REFERENCES `mydb`.`usuario` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -70,16 +70,15 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Topicos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Topicos` (
-  `TopicoID` INT NOT NULL AUTO_INCREMENT,
-  `cometario` VARCHAR(200) NOT NULL,
+  `idTopicos` INT NOT NULL,
+  `comentario` VARCHAR(200) NOT NULL,
   `titulo` VARCHAR(45) NOT NULL,
-  `salaid` INT NOT NULL,
-  `donoid` INT NOT NULL,
-  PRIMARY KEY (`TopicoID`, `salaid`, `donoid`),
-  INDEX `fk_Topicos_sala1_idx` (`salaid` ASC, `donoid` ASC),
+  `sala_idsala` INT NOT NULL,
+  PRIMARY KEY (`idTopicos`),
+  INDEX `fk_Topicos_sala1_idx` (`sala_idsala` ASC),
   CONSTRAINT `fk_Topicos_sala1`
-    FOREIGN KEY (`salaid` , `donoid`)
-    REFERENCES `mydb`.`sala` (`idsala` , `usuario_id`)
+    FOREIGN KEY (`sala_idsala`)
+    REFERENCES `mydb`.`sala` (`idsala`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -89,12 +88,15 @@ ENGINE = InnoDB;
 -- Table `mydb`.`resposta`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`resposta` (
+  `idresposta` INT NOT NULL,
   `comentario` VARCHAR(200) NOT NULL,
-  `donoid` INT NOT NULL,
-  `TopicoID` INT NOT NULL,
+  `idTopicos` INT NOT NULL,
+  `dono` INT NOT NULL,
+  PRIMARY KEY (`idresposta`),
+  INDEX `fk_resposta_Topicos1_idx` (`idTopicos` ASC),
   CONSTRAINT `fk_resposta_Topicos1`
-    FOREIGN KEY (`TopicoID`)
-    REFERENCES `mydb`.`Topicos` (`TopicoID`)
+    FOREIGN KEY (`idTopicos`)
+    REFERENCES `mydb`.`Topicos` (`idTopicos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -104,13 +106,10 @@ ENGINE = InnoDB;
 -- Table `mydb`.`arquivos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`arquivos` (
-  `idarquivo` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL,
-  `data_enviado` DATE NOT NULL,
-  `Data entrega` DATE NOT NULL,
+  `idarquivos` INT NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
   `idsala` INT NOT NULL,
-  `donoid` INT NULL,
-  PRIMARY KEY (`idarquivo`),
+  PRIMARY KEY (`idarquivos`, `nome`),
   INDEX `fk_arquivos_sala1_idx` (`idsala` ASC),
   CONSTRAINT `fk_arquivos_sala1`
     FOREIGN KEY (`idsala`)
@@ -121,23 +120,23 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`menssagem`
+-- Table `mydb`.`mensagem`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`menssagem` (
-  `conteudo` VARCHAR(200) NOT NULL,
-  `idmenssagem` INT NOT NULL AUTO_INCREMENT,
-  `remetenteid` INT NOT NULL,
-  `destinatarioid` INT NOT NULL,
-  PRIMARY KEY (`idmenssagem`, `destinatarioid`, `remetenteid`),
-  INDEX `fk_menssagem_usuario1_idx` (`remetenteid` ASC),
-  INDEX `fk_menssagem_usuario2_idx` (`destinatarioid` ASC),
+CREATE TABLE IF NOT EXISTS `mydb`.`mensagem` (
+  `idmenssagem` INT NOT NULL,
+  `conteudo` VARCHAR(45) NOT NULL,
+  `remententeID` INT NOT NULL,
+  `destinatarioID` INT NOT NULL,
+  PRIMARY KEY (`idmenssagem`),
+  INDEX `fk_menssagem_usuario1_idx` (`remententeID` ASC),
+  INDEX `fk_menssagem_usuario2_idx` (`destinatarioID` ASC),
   CONSTRAINT `fk_menssagem_usuario1`
-    FOREIGN KEY (`remetenteid`)
+    FOREIGN KEY (`remententeID`)
     REFERENCES `mydb`.`usuario` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_menssagem_usuario2`
-    FOREIGN KEY (`destinatarioid`)
+    FOREIGN KEY (`destinatarioID`)
     REFERENCES `mydb`.`usuario` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -145,15 +144,17 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`arquivo_menssagem`
+-- Table `mydb`.`arquivo_mensagem`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`arquivo_menssagem` (
+CREATE TABLE IF NOT EXISTS `mydb`.`arquivo_mensagem` (
+  `idarquivo_menssagem` INT NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
-  `idmenssagem` INT NOT NULL,
-  PRIMARY KEY (`idmenssagem`),
+  `idmensagem` INT NOT NULL,
+  PRIMARY KEY (`idarquivo_menssagem`),
+  INDEX `fk_arquivo_menssagem_menssagem1_idx` (`idmensagem` ASC),
   CONSTRAINT `fk_arquivo_menssagem_menssagem1`
-    FOREIGN KEY (`idmenssagem`)
-    REFERENCES `mydb`.`menssagem` (`idmenssagem`)
+    FOREIGN KEY (`idmensagem`)
+    REFERENCES `mydb`.`mensagem` (`idmenssagem`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -184,12 +185,14 @@ ENGINE = InnoDB;
 -- Table `mydb`.`arquivo_comentario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`arquivo_comentario` (
-  `comentario` VARCHAR(45) NULL,
-  `idusuario` INT NULL,
-  `arquivos_idarquivo` INT NOT NULL,
+  `idarquivo_comentario` INT NOT NULL,
+  `comentario` VARCHAR(45) NOT NULL,
+  `idarquivos` INT NOT NULL,
+  PRIMARY KEY (`idarquivo_comentario`),
+  INDEX `fk_arquivo_comentario_arquivos1_idx` (`idarquivos` ASC),
   CONSTRAINT `fk_arquivo_comentario_arquivos1`
-    FOREIGN KEY (`arquivos_idarquivo`)
-    REFERENCES `mydb`.`arquivos` (`idarquivo`)
+    FOREIGN KEY (`idarquivos`)
+    REFERENCES `mydb`.`arquivos` (`idarquivos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
