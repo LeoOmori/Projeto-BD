@@ -15,6 +15,7 @@
 
         $result = mysqli_query($link, $sql);
 
+        
 
         if (mysqli_num_rows($result) > 0) {
             // output data of each row

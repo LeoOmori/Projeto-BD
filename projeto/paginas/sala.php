@@ -8,7 +8,7 @@
 
   $dono = donoSala($id);
   $id_sessao = $_SESSION['id'];
-
+  $_SESSION['salaID'] = $id;
   $participa = participaSalaCheck($id_sessao, $id);
 
 

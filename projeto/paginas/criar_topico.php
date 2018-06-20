@@ -51,16 +51,19 @@
             <div class="col-md-6">
                 <h3>Criar tópico</h3>
                 <div class="form-group">
-                    <form action="" method="get">
+                    <form action="../Crud/criar_tópico.php" method="get">
                         <label for="nome">
                             <h5>Título:</h5>
                         </label>
-                        <input type="text" class="form-control" name="Nome_topico" id="nome">
+                        <input type="text" class="form-control" name="nome_topico" id="nome">
 
                         <label for="comentarios_topico">
                         <h5>comentário:</h5>
                         </label>
                         <textarea class="form-control" name="comentario" id="comentarios_topico" rows="3"></textarea>
+                        <div class="botao pt-4">
+                            <button type="submit" class="btn btn-primary">Criar sala</button>
+                        </div>
                     </form>
                 </div>
             </div>

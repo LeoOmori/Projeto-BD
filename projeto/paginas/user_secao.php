@@ -3,6 +3,7 @@
   session_start();
 
   require_once('../Scripts/sessao_sala.php');
+  require_once('../Crud/salaDeUsuario.php');
 
 ?>
 
@@ -73,7 +74,13 @@
           <h3>Salas que você participa:</h3>
           <div class="pt-4">
 
+            <?php
 
+
+              salaDeusuario();
+
+
+            ?>
 
 
           </div>
