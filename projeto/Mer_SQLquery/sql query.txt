@@ -19,7 +19,7 @@ USE `mydb` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`usuario` (
   `id` INT NOT NULL,
-  `nome` VARCHAR(45) NOT NULL,
+  `usuario` VARCHAR(45) NOT NULL,
   `senha` VARCHAR(32) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -56,6 +56,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`sala` (
   `nome` VARCHAR(45) NOT NULL,
   `comentario` VARCHAR(45) NOT NULL,
   `Dono` INT NOT NULL,
+  `privacidade` INT NOT NULL,
   PRIMARY KEY (`idsala`),
   INDEX `fk_sala_usuario1_idx` (`Dono` ASC),
   CONSTRAINT `fk_sala_usuario1`
@@ -73,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Topicos` (
   `idTopicos` INT NOT NULL,
   `comentario` VARCHAR(200) NOT NULL,
   `titulo` VARCHAR(45) NOT NULL,
-  `sala_idsala` INT NOT NULL,
+  `idsala` INT NOT NULL,
   PRIMARY KEY (`idTopicos`),
   INDEX `fk_Topicos_sala1_idx` (`sala_idsala` ASC),
   CONSTRAINT `fk_Topicos_sala1`
