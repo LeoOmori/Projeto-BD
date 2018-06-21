@@ -77,7 +77,7 @@
             $objdb = new db();
             $link = $objdb->conecta_mysql();
 
-            $sql = " INSERT  INTO  sala(nome, comentario, privacidade, dono) VALUES ('$nome','$comentario','$privacidade','$id')";
+            $sql = " INSERT  INTO  sala(nome, comentário, privacidade, Dono) VALUES ('$nome','$comentario','$privacidade','$id')";
 
             mysqli_query($link,$sql);
 

@@ -10,7 +10,7 @@
         $busca = $s;
 
 
-        $sql ="SELECT comentario FROM sala WHERE idsala = '$s'";
+        $sql ="SELECT comentário FROM sala WHERE idsala = '$s'";
 
 
         $result = mysqli_query($link, $sql);
@@ -20,7 +20,7 @@
         if (mysqli_num_rows($result) > 0) {
             // output data of each row
             while($row = mysqli_fetch_assoc($result)) {
-                $var = $row['comentario'];
+                $var = $row['comentário'];
                 echo "<p>$var</br>";
 
             }

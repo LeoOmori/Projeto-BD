@@ -5,6 +5,7 @@
   require_once('../Crud/sala_conteudo.php');
   require_once('../Crud/select_dono_sala.php');
   require_once('../Crud/salaParticipaCheck.php');
+  require_once('../Crud/mostrar_topicos.php');
 
   $dono = donoSala($id);
   $id_sessao = $_SESSION['id'];
@@ -13,6 +14,7 @@
 
 
 ?>
+
 
 
 
@@ -57,7 +59,7 @@
       <?php
         
         
-        if(($id_sessao !== $dono) && ($participa == 0)){
+        if(($id_sessao != $dono) && ($participa == 0)){
             echo '
             <form action="../Crud/participarSala.php" method="get">
             <button type="submit" name="var" value=" ',$id,' ">entre na sala</button>
@@ -90,7 +92,7 @@
             comentario($id);
 
 
-          ?>
+          ?>  
         </div>
         <div class="col-md-6 border">
 
@@ -104,8 +106,12 @@
       <div class="wrapper pt-4 px-4">
           <h3>Fórum:</h3>
           <div class="wrapper border">
-            <a href="topico.php"><p>topico 1</p></a>         
-            <a href="topico.php"><p>topico 1</p></a>
+          <?php
+
+          topicoMostrar();
+
+
+          ?>
           </div>
           <div class="botao pt-4 " align="center">
             <a href="criar_topico.php"><button class="btn btn-primary">Criar Tópico</button></a>

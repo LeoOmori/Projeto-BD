@@ -19,8 +19,8 @@ function donoSala($x){
 
         $dados_usuario = mysqli_fetch_array($resultado_id);
 
-        if(isset($dados_usuario['usuario_id'])){
-            $dono =$dados_usuario['usuario_id'];
+        if(isset($dados_usuario['Dono'])){
+            $dono =$dados_usuario['Dono'];
             return $dono;
         }
     }else{
