@@ -6,6 +6,7 @@
   require_once('../Crud/select_dono_sala.php');
   require_once('../Crud/salaParticipaCheck.php');
   require_once('../Crud/mostrar_topicos.php');
+  require_once('../Scripts/download.php');
 
   $dono = donoSala($id);
   $id_sessao = $_SESSION['id'];
@@ -95,10 +96,16 @@
         <div class="col-md-6 border">
 
           <h3>arquivos:</h3>
+          <?php  download(); ?>
         </div>
         <div class="col-md-3">
           <h3>coloque um arquivo:</h3>
-          <a href="upload_arquivo.php"><button>upload</button></a>
+          <form action="../Scripts/upload.php" method="POST" enctype="multipart/form-data">
+          
+            <input type="file" name="file" id="file">
+            <button type="submit" name="submit">Upload</button>
+
+          </form>
         </div>
       </div>
       <div class="wrapper pt-4 px-4">

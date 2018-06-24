@@ -1,11 +1,7 @@
 <?php
 
   session_start();
-  require_once('../Crud/tópico_conteúdo.php');
-  require_once('../Crud/mostrarResposta.php');
-  $var = $_GET['var'];
-  $_SESSION['id_tp'] = $var;
-
+  $_SESSION['id']
 
 ?>
 
@@ -23,7 +19,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-    <title>tópico</title>
+    <title>Criar tópico</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -47,48 +43,28 @@
 
     </nav>
     <div class="wrapper pt-4 px-4">
-    
-        <div class="Topic">
-        
-            <h3><?php nome($var);   ?></h3>
-
-            <div class="border">
-                <p><?php coment($var);   ?></p>
+        <div class="row">
+            
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h3>Criar resposta</h3>
+                <div class="form-group">
+                    <form action="../Crud/criarResposta.php" method="get">
+                        <label for="comentarios_topico">
+                        <h5>Resposta:</h5>
+                        </label>
+                        <textarea class="form-control" name="Resposta" id="comentarios_topico" rows="3"></textarea>
+                        <div class="botao pt-4">
+                            <button type="submit" class="btn btn-primary">Criar sala</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <h3>Respostas:</h3>
-
-
-            <?php  
-            
-                name($var);
-            
-            ?>
-
-            <div class="botao pt-4 " align="center">
-
-                <a href=<?php echo "criar_resposta.php?var=",$var,"" ?>><button class="btn btn-primary">Criar resposta</button></a>
-
-             </div>
-            <?php   user(1);?>
-
-            
-
-
-
+            <div class="col-md-3"></div>
         </div>
-               
-
     </div>
-      
-
-
-
-
-
-
-
-
-
+    
+    
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

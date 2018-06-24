@@ -10,6 +10,7 @@ function topicoMostrar(){
     
     $sql =" SELECT * FROM tópicos WHERE donoid = '$id' " ;
 
+
     $objdb = new db();
     $link = $objdb->conecta_mysql();
 
