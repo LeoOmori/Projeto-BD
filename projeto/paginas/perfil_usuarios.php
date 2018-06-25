@@ -2,11 +2,14 @@
 
   session_start();
   require_once('../Crud/select_user_by_id.php');
+  require_once('../Crud/conviteEnviado.php');
 
     $id = $_GET['var'];
+    $id1 = $_SESSION['id'];
     $usuario;
     $email;
     userById($id, $usuario, $email);
+    $checkConvite = verUsuario($id1,$id);
 
 ?>
 
@@ -62,6 +65,10 @@
                         <h5> <?php echo " $email" ?> </h5>
                         <h5> </h5>
                     </div>
+                    <?php if (verUsuario($id1,$id)==1) echo"<form action=\"../Crud/enviarConvite.php\" method=\"get\">
+                    <button type=\"submit\" name=\"id2\" value=\"$id\">Enviar Convite
+                    </button>
+                    </form>"?>
                 </div>
             <div class="col-md-3">
 

@@ -50,6 +50,7 @@
             <div class="menu border">
               <a href="perfil.php"><p>Perfil</p></a>
               <a href="criar_sala.php"><p>Criar sala</p></a>
+              <a href="conviteAmizade.php"><p>Solicitações de Amizade</p></a>
             </div>
           </div>
         </div>
