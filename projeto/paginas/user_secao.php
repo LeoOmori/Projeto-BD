@@ -51,6 +51,7 @@
               <a href="perfil.php"><p>Perfil</p></a>
               <a href="criar_sala.php"><p>Criar sala</p></a>
               <a href="conviteAmizade.php"><p>Solicitações de Amizade</p></a>
+              <a href="amigos.php"><p>amigos</p></a>
             </div>
           </div>
         </div>
