@@ -1,7 +1,7 @@
 <?php
 
 
-    function usuarioPorId($id){
+    function usuarioPorId($x){
 
         require_once('../Bd_connect/classe_db.php');
 

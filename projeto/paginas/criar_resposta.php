@@ -55,7 +55,7 @@
                         </label>
                         <textarea class="form-control" name="Resposta" id="comentarios_topico" rows="3"></textarea>
                         <div class="botao pt-4">
-                            <button type="submit" class="btn btn-primary">Criar sala</button>
+                            <button type="submit" class="btn btn-primary">Criar resposta</button>
                         </div>
                     </form>
                 </div>

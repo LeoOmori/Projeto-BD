@@ -50,7 +50,9 @@
     <div class="wrapper px-4">
 
     <h3 class="pt-4" >Solicitações de amizade:</h3>
-    <?php conviteMostrar(); ?>
+    <td>
+      <tr> <?php conviteMostrar();  ?></tr> 
+    </td>
     </div>
     
     

@@ -6,9 +6,9 @@ function topicoMostrar(){
 
     require_once('../bd_connect/classe_db.php');
 
-    $id = $_SESSION['id'];
+    $id = $_SESSION['salaID'];
     
-    $sql =" SELECT * FROM tópicos WHERE donoid = '$id' " ;
+    $sql =" SELECT * FROM tópicos WHERE idsala = '$id' " ;
 
 
     $objdb = new db();

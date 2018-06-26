@@ -7,7 +7,7 @@ function conviteMostrar(){
 
     $id = $_SESSION['id'];
     
-    $sql =" SELECT * FROM usuario_amigos WHERE usuario_id1 = '$id' AND aceito = 0" ;
+    $sql =" SELECT * FROM usuario_amigos WHERE usuario_id2 = '$id' AND aceito = 0" ;
 
 
     $objdb = new db();
@@ -24,16 +24,26 @@ function conviteMostrar(){
         // output data of each row
         while($row = mysqli_fetch_assoc($result)) {   
             $div = '"pt-4"';
-            $var = $row["usuario_id2"];
+            $var = $row["usuario_id1"];
             $usuario_nome = usuarioPorId($var);
             echo "<div class=$div>
-           <p>$usuario_nome</p>
+            <td>
+                <tr>
+                    <p>$usuario_nome</p>
+                </tr>
+                <tr>
+                    <a href=\"aceitarConvite.php\">Aceitar</a>
+                </tr>
+                <tr>
+                    <a href=\"recusarConvite.php\">recusar</a>
+                </tr>
+           </td>
         </div>   ";
-
-
 
 
         }
     }
 }
 ?>
+
+<tr></tr>

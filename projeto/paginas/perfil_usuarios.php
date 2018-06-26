@@ -1,16 +1,13 @@
 <?php
-
   session_start();
   require_once('../Crud/select_user_by_id.php');
   require_once('../Crud/conviteEnviado.php');
-
     $id = $_GET['var'];
     $id1 = $_SESSION['id'];
     $usuario;
     $email;
     userById($id, $usuario, $email);
     $checkConvite = verUsuario($id1,$id);
-
 ?>
 
 
