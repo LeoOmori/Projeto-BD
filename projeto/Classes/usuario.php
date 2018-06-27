@@ -63,21 +63,20 @@
 
         }
 
-        public function criarSala($name, $coment, $priv){
+        public function criarSala($name, $coment){
 
             session_start();
             
             $id = $_SESSION['id'];
             $nome = $name;
             $comentario = $coment;
-            $privacidade = $priv;
 
             require_once('../Bd_connect/classe_db.php');
             
             $objdb = new db();
             $link = $objdb->conecta_mysql();
 
-            $sql = " INSERT  INTO  sala(nome, comentário, privacidade, Dono) VALUES ('$nome','$comentario','$privacidade','$id')";
+            $sql = " INSERT  INTO  sala(nome, comentário, Dono) VALUES ('$nome','$comentario','$id')";
 
             mysqli_query($link,$sql);
 

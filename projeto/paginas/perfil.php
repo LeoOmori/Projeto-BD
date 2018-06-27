@@ -48,9 +48,6 @@
 
             </div>
             <div class="col-md-6">
-                <div class="box-avatar">
-                    <img src="img/avatar.jpg" alt="avatar">
-                </div>
                 <h3>perfil</h3>
                     <div class="pt-4">
                         <h5> <?php echo " $_SESSION[usuario]" ?> </h5>

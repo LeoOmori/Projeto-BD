@@ -59,17 +59,6 @@
             <h3>comentários:</h3>
             </label>
             <textarea class="form-control" name="comentario" id="comentarios_sala" rows="3"></textarea>
-
-
-            <h3>Tipo de sala:</h3>
-            <input type="radio" name="privacidade_sala" id="privacidade1" value="1" checked>
-            <label for="privacidade1">
-                Pública
-            </label>
-            <input type="radio" name="privacidade_sala" id="privacidade2" value="0">
-            <label for="forum_habilitar2">
-                Privada
-            </label>
             <div class="botao pt-4">
                 <button type="submit" class="btn btn-primary">Criar sala</button>
             </div>

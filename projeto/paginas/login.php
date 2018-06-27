@@ -34,9 +34,6 @@
                                 <a class="nav-link" href="index.html">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Sobre</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="cadastro.php">Cadastre-se</a>
                             </li>
                            <li class="nav-item">
@@ -73,7 +70,7 @@
                     <form action="../Scripts/validarSenha.php" method="post">
 
                         <div class="form-group">
-                            <label for="Nome">E-mail</label>
+                            <label for="Nome">usuario</label>
                             <input type="text" name="Nome_input" class="form-control" id="Nome">
                         </div>
 

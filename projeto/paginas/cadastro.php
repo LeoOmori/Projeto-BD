@@ -38,9 +38,6 @@
                                 <a class="nav-link" href="index.html">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Sobre</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="cadastro.php">Cadastre-se</a>
                             </li>
                            <li class="nav-item">
@@ -89,12 +86,6 @@
                         <div class="form-group">
                             <label for="Password">Senha</label>
                             <input type="text" name="password_input" class="form-control" id="Password">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">
-                                <input type="checkbox" name="Termos">Aceito os termos do serviço
-                            </label>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Cadastrar</button>
