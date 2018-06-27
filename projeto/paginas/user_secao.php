@@ -52,6 +52,7 @@
               <a href="criar_sala.php"><p>Criar sala</p></a>
               <a href="conviteAmizade.php"><p>Solicitações de Amizade</p></a>
               <a href="amigos.php"><p>amigos</p></a>
+              <a href="mensagem.php"><p>mensagens</p></a>
             </div>
           </div>
         </div>

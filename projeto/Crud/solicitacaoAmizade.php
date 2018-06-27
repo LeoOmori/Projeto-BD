@@ -25,6 +25,7 @@ function conviteMostrar(){
         while($row = mysqli_fetch_assoc($result)) {   
             $div = '"pt-4"';
             $var = $row["usuario_id1"];
+            $var2 = $row["usuario_id2"];
             $usuario_nome = usuarioPorId($var);
             echo "<div class=$div>
             <td>
@@ -32,10 +33,10 @@ function conviteMostrar(){
                     <p>$usuario_nome</p>
                 </tr>
                 <tr>
-                    <a href=\"aceitarConvite.php\">Aceitar</a>
+                    <a href=\"../Crud/aceitarConvite.php?var2=$var\">Aceitar</a>
                 </tr>
                 <tr>
-                    <a href=\"recusarConvite.php\">recusar</a>
+                    <a href=\"../Crud/recusarConvite.php?var2=$var\">recusar</a>
                 </tr>
            </td>
         </div>   ";
@@ -45,5 +46,3 @@ function conviteMostrar(){
     }
 }
 ?>
-
-<tr></tr>

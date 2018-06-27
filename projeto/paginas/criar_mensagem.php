@@ -1,16 +1,10 @@
 <?php
-  session_start();
-  require_once('../Crud/select_user_by_id.php');
-  require_once('../Crud/conviteEnviado.php');
-  require_once('../Crud/verValorConvite.php');
-    $id = $_GET['var'];
-    $id1 = $_SESSION['id'];
-    $usuario;
-    $email;
-    userById($id, $usuario, $email);
-    $checkConvite = verUsuario($id1,$id);
-?>
 
+  session_start();
+  $var = $_GET['var'];
+
+
+?>
 
 
 
@@ -26,7 +20,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-    <title>Perfil</title>
+    <title>Criar tópico</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -51,38 +45,29 @@
     </nav>
     <div class="wrapper pt-4 px-4">
         <div class="row">
-            <div class="col-md-3">
-
-            </div>
+            
+            <div class="col-md-3"></div>
             <div class="col-md-6">
-                <div class="box-avatar">
-                    <img src="img/avatar.jpg" alt="avatar">
-                </div>
-                <h3>perfil</h3>
-                    <div class="pt-4">
-                        <h5> <?php echo " $usuario" ?> </h5>
-                        <h5> <?php echo " $email" ?> </h5>
-                        <h5> </h5>
-                    </div>
-                    <?php if (verUsuario($id1,$id) == 1) echo"<form action=\"../Crud/enviarConvite.php\" method=\"get\">
-                    <button type=\"submit\" name=\"id2\" value=\"$id\">Enviar Convite
-                    </button>
-                    </form>"; else if($id1 == $id){
-                       echo 'seu perfil';
-                    }else{
-                        if(verConvite($id1,$id) == 0) echo "<a href=\"criar_mensagem.php?var=$id\">enviar menssagem para o usuário</a>";
-                        else{
-                            echo "convite pendente!";
-                        }
+                <h3>criar mensagem</h3>
+                <div class="form-group">
+                    <form action="../Crud/enviarMensagem.php?var=<?php echo"$var"?>" method="POST" enctype="multipart/form-data">
+                        <label for="comentarios_topico">
+                        <h5>mensagem:</h5>
+                        </label>
+                        <textarea class="form-control" name="mensagem" id="comentarios_topico" rows="3"></textarea>
+                        <h3>coloque um arquivo:</h3>
+                            
+                                <input type="file" name="file" id="file">
 
-                    }?>
+                        <div class="botao pt-4">
+                            <button type="submit" name="submit" class="btn btn-primary">enviar</button>
+                        </div>
+                    </form>
                 </div>
-            <div class="col-md-3">
-
             </div>
+            <div class="col-md-3"></div>
         </div>
     </div>
-    
     
     
     

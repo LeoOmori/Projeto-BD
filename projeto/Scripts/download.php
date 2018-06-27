@@ -27,7 +27,7 @@ function download(){
             echo '<td>'; echo "$var";       echo '</td>';
             echo '<td>'; echo "<a href=\"$arq\">download</a>";       echo '</td>';  
 
-            echo '<td>'; echo "<a href=\"../paginas/Comentários.php?var=$idArq\">  comentários</a>";       echo '</td>';
+            echo '<td>'; echo "<a href=\"../paginas/comentSala.php?var=$idArq\">  comentários</a>";       echo '</td>';
 
 
             echo ' </tr>';

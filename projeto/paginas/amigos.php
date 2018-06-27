@@ -1,6 +1,7 @@
 <?php
 
   session_start();
+  require_once('../Crud/mostrarAmigos.php');
 
 
 
@@ -49,6 +50,11 @@
     <div class="wrapper px-4">
 
     <h3 class="pt-4" >Amigos:</h3>
+      <div class="row">
+        <?php
+        amigosMostrar();
+        ?>
+      </div>
     </div>
     
     
