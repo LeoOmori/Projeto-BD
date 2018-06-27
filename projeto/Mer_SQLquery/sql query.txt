@@ -1,4 +1,4 @@
--- MySQL Workbench Forward Engineering
+﻿-- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -190,6 +190,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`arquivo_comentário` (
   `idarquivo_comentário` INT NOT NULL AUTO_INCREMENT,
   `comentário` VARCHAR(45) NOT NULL,
   `idarquivos` INT NOT NULL,
+  `id dono` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idarquivo_comentário`),
   INDEX `fk_arquivo_comentário_arquivos1_idx` (`idarquivos` ASC),
   CONSTRAINT `fk_arquivo_comentário_arquivos1`
